@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 function App() {
-	const [start, setStart] = useState([])
-
+	const [list, setList] = useState([])
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/todos')
 			.then(res => res.json())
-			.then(data => setStart(data))
+			.then(data => setList(data))
 	}, [])
 	return (
 		<>
 			<ul>
-				{start.map(item => {
+				{list.map(item => {
 					return (
 						<li key={item.id}>
 							<p>{item.title}</p>
